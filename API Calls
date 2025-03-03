@@ -1,0 +1,607 @@
+{
+	"info": {
+		"_postman_id": "9bf5ed7e-f7c9-4ad9-955f-e6548853edfd",
+		"name": "Job Portal",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "42399195"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "user default",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:5000/api/user",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register new user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "ramesh",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "ramesh@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "ramesh123",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "9988776655",
+									"type": "text"
+								},
+								{
+									"key": "address",
+									"value": "kothrud pune",
+									"type": "text"
+								},
+								{
+									"key": "dateOfBirth",
+									"value": "2000-03-10",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:5000/api/user/register",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"user",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "ramesh@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "ramesh1234",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:5000/api/user/login",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"user",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update User Details",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2I1YWE3ZDllMjcxYTY3ZWNhYWEwN2QiLCJpYXQiOjE3Mzk5NzIwOTQsImV4cCI6MTczOTk3NTY5NH0.i6ZnUqSASBY1H3-IxTF1zjOKoyDFU4QbY7aWSypPymg",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "ramesh ",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "ramesh@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "ramesh1234",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "9988776655",
+									"type": "text"
+								},
+								{
+									"key": "address",
+									"value": "kothrud pune",
+									"type": "text"
+								},
+								{
+									"key": "dateOfBirth",
+									"value": "2000-03-10",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:5000/api/user/update/67b5aa7d9e271a67ecaaa07d",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"user",
+								"update",
+								"67b5aa7d9e271a67ecaaa07d"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Created jobs by User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Add a test to compare the response against a saved value\r",
+									"pm.test(\"Check for status code 401\", function () {\r",
+									"    pm.response.to.have.status(401);\r",
+									"    pm.response.to.not.be.error; // Check that the response is not an error\r",
+									"    pm.response.to.have.header(\"Content-Type\", \"text/html\"); // Check for Content-Type header\r",
+									"    pm.expect(pm.response.text()).to.include(\"Access Denied\"); // Check for specific message in the response body\r",
+									"});\r",
+									"pm.test(\"Check for status code 401\", function () {\r",
+									"    pm.response.to.have.status(401);\r",
+									"    pm.response.to.not.be.error; // Check that the response is not an error\r",
+									"    pm.response.to.have.header(\"Content-Type\", \"text/html\"); // Check for Content-Type header\r",
+									"    pm.expect(pm.response.text()).to.include(\"Your Access Denied\"); // Check for specific message in the response body\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"packages": {},
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2I2YzIzYjczMTBkYTE5MjU4OTRmY2MiLCJpYXQiOjE3NDAwMzEyNDQsImV4cCI6MTc0MDAzNDg0NH0.7t0S-bHbrLThurzxOwnYsH9WJMkfrGl9t7dRNccWAbA",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:5000/api/user/createdJob/67b6c23b7310da1925894fcc",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"user",
+								"createdJob",
+								"67b6c23b7310da1925894fcc"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete user account with posted jobs",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Job",
+			"item": [
+				{
+					"name": "job default",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "create job",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2I1YWE3ZDllMjcxYTY3ZWNhYWEwN2QiLCJpYXQiOjE3Mzk5NjU2MDIsImV4cCI6MTczOTk2OTIwMn0.2adMlY2O8VEcX-Wh4fRUqEpiu1uJx_VSlX6JST5HBi8",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "title",
+									"value": "Java Developer",
+									"type": "text"
+								},
+								{
+									"key": "companyName",
+									"value": "Dell",
+									"type": "text"
+								},
+								{
+									"key": "location",
+									"value": "pune",
+									"type": "text"
+								},
+								{
+									"key": "salary",
+									"value": "4LPA",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Indepth knowledge of springboot ,core java",
+									"type": "text"
+								},
+								{
+									"key": "locationtype",
+									"value": "Remote",
+									"type": "text"
+								},
+								{
+									"key": "jobtype",
+									"value": "Full Time",
+									"type": "text"
+								},
+								{
+									"key": "skills",
+									"value": "java,hibernate,springmvc,springBoot",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:5000/api/job/create",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"job",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Jobs",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:5000/api/job/allJobs",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"job",
+								"allJobs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get job id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:5000/api/job/getJob/67b5c6482068f0949a8d7077",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"job",
+								"getJob",
+								"67b5c6482068f0949a8d7077"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": "67b5c6482068f0949a8d7077",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update Job Details",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2I1YWE3ZDllMjcxYTY3ZWNhYWEwN2QiLCJpYXQiOjE3Mzk5Njk4MzUsImV4cCI6MTczOTk3MzQzNX0.HacwunD42QMBiMo9U21_RF1FT-uKw9b0du1AgJ29Cg4",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "title",
+									"value": "Frontend Developer",
+									"type": "text"
+								},
+								{
+									"key": "companyName",
+									"value": "EQ",
+									"type": "text"
+								},
+								{
+									"key": "location",
+									"value": "Mumbai",
+									"type": "text"
+								},
+								{
+									"key": "salary",
+									"value": "4LPA",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "knowledge of frontend technologies",
+									"type": "text"
+								},
+								{
+									"key": "locationtype",
+									"value": "in Office",
+									"type": "text"
+								},
+								{
+									"key": "jobtype",
+									"value": "Full Time",
+									"type": "text"
+								},
+								{
+									"key": "skills",
+									"value": "html,css,bootstrap,javascripts",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:5000/api/job/update/67b5c6482068f0949a8d7077",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"job",
+								"update",
+								"67b5c6482068f0949a8d7077"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete Job",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Admin",
+			"item": [
+				{
+					"name": "Admin default",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:5000/api/admin",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"admin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register Admin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Akash Datkhile",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "akash.datkhile@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "Akash@1011",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "9876543210",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:5000/api/admin/register",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"admin",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Admin Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "akash.datkhile@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "Akash@1011",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:5000/api/admin/login",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"admin",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get All users in job portal",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "akash.datkhile@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "Akash@1011",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:5000/api/admin/getAllUser",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"admin",
+								"getAllUser"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
