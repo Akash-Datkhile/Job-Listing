@@ -140,35 +140,3 @@ const deleteUserWithPostedJob=async (req,res)=>{
     }
 }
 module.exports={registerUser,userLogin,updateUserDetails,getAllPostedJob,deleteUserWithPostedJob};
-/*
- sir today i have created job portal 
- where  we have 3 entities like user job and admin
- for this i have created api like
- for user -
-            - register user
-            - login user
-            - update user details
-            - get all jobs
-            - get job by id
-            - update job details
-for jobs -
-            - create job
-            - update job details
-
-for admin -
-            - register admin
-            - login admin
-            - get all users
-        
-and tomorrow i will be create more api like
- - apply job
- - get all applications
- - search jobs based on skills
- - get all applications based on user
- - delete user
- - delete job
-
-and please let me know if there are any other task is there 
-
-
-*/
